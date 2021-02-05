@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="472px" height="146px" viewBox="0 0 472 146" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Logo-Smart-Village-Solutions-SVS</title>
+    <defs>
+        <polygon id="path-1" points="38.944 0 66 17.432 66 86 0 86 0 25.091"></polygon>
+        <path d="M42.185,0.396 L68.909,18.057 C69.59,18.506 70,19.274 70,20.096 L70,89.564 C70,90.909 68.923,92 67.596,92 L2.404,92 C1.077,92 0,90.909 0,89.564 L0,27.857 C0,27.034 0.41,26.264 1.091,25.816 L39.557,0.396 C40.356,-0.132 41.386,-0.132 42.185,0.396 Z M40.871,5.344 L4.808,29.176 L4.808,87.128 L65.192,87.128 L65.192,21.417 L40.871,5.344 Z" id="path-3"></path>
+        <polygon id="path-5" points="39 0 78 25.091 78 86 0 86 0 25.091"></polygon>
+        <path d="M42.318,0.396 L80.906,25.816 C81.589,26.264 82,27.034 82,27.857 L82,89.564 C82,90.909 80.92,92 79.588,92 L2.412,92 C1.08,92 0,90.909 0,89.564 L0,27.857 C0,27.034 0.411,26.264 1.094,25.816 L39.682,0.396 C40.483,-0.132 41.517,-0.132 42.318,0.396 Z M41,5.344 L4.824,29.176 L4.824,87.128 L77.176,87.128 L77.176,29.176 L41,5.344 Z" id="path-7"></path>
+        <polygon id="path-9" points="22 0 22 44 0 44"></polygon>
+        <path d="M25.546,0 C26.901,0 28,1.086 28,2.425 L28,45.575 C28,46.914 26.901,48 25.546,48 L2.454,48 C1.097,48 0,46.914 0,45.575 L0,2.425 C0,1.086 1.097,0 2.454,0 L25.546,0 Z M23.093,4.849 L4.907,4.849 L4.907,43.15 L23.093,43.15 L23.093,4.849 Z" id="path-11"></path>
+        <path d="M5.27,0 C6.777,0 8,0.896 8,2 C8,3.104 6.777,4 5.27,4 L2.73,4 C1.223,4 0,3.104 0,2 C0,0.896 1.223,0 2.73,0 L5.27,0 Z" id="path-13"></path>
+    </defs>
+    <g id="Logo-Smart-Village-Solutions-SVS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(20.000000, 22.000000)">
+            <g id="Group-3" transform="translate(2.000000, 1.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <polygon id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)" points="-0.1 86 66.02 86 66.02 -0.04 -0.1 -0.04"></polygon>
+            </g>
+            <g id="Group-6">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <g id="Clip-5"></g>
+                <polygon id="Fill-4" fill="#11223F" mask="url(#mask-4)" points="-0.02 92.08 70.06 92.08 70.06 -0.08 -0.02 -0.08"></polygon>
+            </g>
+            <g id="Group-9" transform="translate(42.000000, 12.000000)">
+                <mask id="mask-6" fill="white">
+                    <use xlink:href="#path-5"></use>
+                </mask>
+                <g id="Clip-8"></g>
+                <polygon id="Fill-7" fill="#FFFFFF" mask="url(#mask-6)" points="-0.02 86.08 78.1 86.08 78.1 -0.08 -0.02 -0.08"></polygon>
+            </g>
+            <g id="Group-12" transform="translate(40.000000, 10.000000)">
+                <mask id="mask-8" fill="white">
+                    <use xlink:href="#path-7"></use>
+                </mask>
+                <g id="Clip-11"></g>
+                <polygon id="Fill-10" fill="#11223F" mask="url(#mask-8)" points="-0.06 92.04 82.02 92.04 82.02 -0.12 -0.06 -0.12"></polygon>
+            </g>
+            <g id="Group-15" transform="translate(70.000000, 56.000000)">
+                <mask id="mask-10" fill="white">
+                    <use xlink:href="#path-9"></use>
+                </mask>
+                <g id="Clip-14"></g>
+                <polygon id="Fill-13" fill="#CBCFD3" mask="url(#mask-10)" points="-0.06 44 22.02 44 22.02 -0.04 -0.06 -0.04"></polygon>
+            </g>
+            <g id="Group-18" transform="translate(66.000000, 54.000000)">
+                <mask id="mask-12" fill="white">
+                    <use xlink:href="#path-11"></use>
+                </mask>
+                <g id="Clip-17"></g>
+                <polygon id="Fill-16" fill="#11223F" mask="url(#mask-12)" points="-0.02 48.04 28.06 48.04 28.06 -0.08 -0.02 -0.08"></polygon>
+            </g>
+            <g id="Group-21" transform="translate(76.000000, 88.000000)">
+                <mask id="mask-14" fill="white">
+                    <use xlink:href="#path-13"></use>
+                </mask>
+                <g id="Clip-20"></g>
+                <polygon id="Fill-19" fill="#11223F" mask="url(#mask-14)" points="-0.06 4.08 8.1 4.08 8.1 0 -0.06 0"></polygon>
+            </g>
+        </g>
+        <g id="Group" transform="translate(164.000000, 20.000000)" fill="#11223F" font-family="Roboto-Medium, Roboto" font-size="46" font-weight="400" letter-spacing="0.0103">
+            <text id="Smart-Village">
+                <tspan x="0" y="48">Sma</tspan>
+                <tspan x="93.9850016" y="48" letter-spacing="0.4795">r</tspan>
+                <tspan x="110.860986" y="48">t Village</tspan>
+            </text>
+            <text id="Solutions">
+                <tspan x="0" y="94">Solutions</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
