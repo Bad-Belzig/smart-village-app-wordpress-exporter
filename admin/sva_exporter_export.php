@@ -19,7 +19,12 @@ function sva_exporter_export_page_html() {
 
 <?php
 
-$param = htmlentities($_GET["export"],ENT_QUOTES);
+if( isset ($_GET["export"]) ) {
+    $param = htmlentities($_GET["export"],ENT_QUOTES);
+} else {
+    $param = "";
+}
+
 
 if (!$param == "") {
     $posts = get_posts(array(
@@ -29,11 +34,77 @@ if (!$param == "") {
           'orderby' => 'modified',
           'order' => 'DESC',
     ));
+} else {
+    $posts = FALSE;
 }
 
 
 $counter = 0;
 if ($posts) {
+
+    $category = get_cat_name($param);
+    $query1 = 'query{pointsOfInterest(dataProvider:\\"Wegweiser Hoher Fl\\u00e4ming\\", category: \\"'. $category .'\\"){id}}';
+    // Alte Daten finden
+    $response1 = wp_remote_post($url.'/graphql', array(
+        'headers' => array(
+            'Authorization' => 'Bearer ' . $token,
+            'Content-Type' => 'application/json; charset=utf-8',
+        ) ,
+        'body' => '{
+        "query": "' . $query1 . '",
+            "variables": {}
+        }'
+    ));
+
+
+    // Alte Daten löschen
+    if (!is_wp_error($response1)) {
+        if (200 == wp_remote_retrieve_response_code($response1)) {
+            $body = wp_remote_retrieve_body($response1);
+            $data = (json_decode($body, true));
+            $pois = $data["data"]["pointsOfInterest"];
+            $anzahl_poi = count($pois);
+            foreach ($pois as $poi) {
+                $id = $poi["id"];
+                // Alte Daten löschen
+
+                $response2 = wp_remote_post($url.'/graphql', array(
+                    'headers' => array(
+                        'Authorization' => 'Bearer ' . $token,
+                        'Content-Type' => 'application/json; charset=utf-8',
+                    ) ,
+                    'body' => '{
+                        "query": "mutation{destroyRecord(id:' . $id . ' recordType:\\"PointOfInterest\\"){id status statusCode}}",
+                        "variables": {}
+                    }',
+                ));
+
+                if (!is_wp_error($response2)) {
+                    if (200 == wp_remote_retrieve_response_code($response2)) {
+                    //    echo "ID " . $id . " wurde gelöscht <br>";
+                    } else {
+                        $error_message = wp_remote_retrieve_response_message($response2);
+                    }
+                } else {
+                    $error_message = $response2->get_error_message();
+                }
+            }    // End of foreach
+
+            update_option("sva-exporter_history", "");
+            // echo "<br> Alle alten POI wurden gelöscht!<br> <br> ";
+
+        } else {
+            $error_message = wp_remote_retrieve_response_message($response1);
+            echo $error_message;
+        }
+    } else {
+        $error_message = $response1->get_error_message();
+        echo $error_message;
+    }
+    // Alte Daten wurden gelöscht
+
+
+    // Daten neu senden
     foreach ($posts as $post) {
         $other_page = $post->ID;
 
@@ -104,6 +175,9 @@ if ($posts) {
                             "\r",
                             "\n"
                         ) , '', $oeffnungszeiten);
+                        if(strlen($oeffnungszeiten) > 250 ) {
+                            $oeffnungszeiten = "Für Informationen zu unseren Öffnungszeiten besuchen Sie bitte unsere Internetseite.";
+                        }
                         $query .= 'openingHours:{';
                         $query .= 'description:\\"' . $oeffnungszeiten . '\\"}';
 
@@ -153,7 +227,7 @@ if ($posts) {
                         if (!is_wp_error($response)) {
                             if (200 == wp_remote_retrieve_response_code($response))
                             {
-                                echo $name . " wurde erfolgreich importiert";
+                                echo $name . " wurde erfolgreich (neu) importiert";
                                 echo "<br>";
                             }
                             else
@@ -189,7 +263,8 @@ if ($posts) {
             <tr>
                     <th style="padding:0 30px 10px 0; text-align: left;">Kategorie</th>
                     <th style="padding:0 30px 10px 0; text-align: left;">Anzahl Einträge</th>
-                    <th style="padding:0 30px 10px 0; text-align: left;">Datum der letzten Aktualisierung / Aktion</th>
+                    <th style="padding:0 30px 10px 0; text-align: left;">Datum der letzten Aktualisierung</th>
+                    <th style="padding:0 30px 10px 0; text-align: left;">Aktion</th>
                 </tr>
             </thead>
             <tbody>
@@ -223,11 +298,10 @@ if ($posts) {
                             $lastExport = $history_data[$cat];
                             if($lastExport) {
                                 echo "Letztes Update: ".$lastExport;
-                            } else {
-                                echo "<a href='admin.php?page=export&export=".$cat."'>Daten jetzt senden</a>";
                             }
                         ?>
                     </td>
+                    <td style="padding:0 30px 10px 0"><a href='admin.php?page=export&export=<?php echo $cat; ?>'>Daten jetzt senden</a></td>
                 </tr>
                 <?php
             } ?>

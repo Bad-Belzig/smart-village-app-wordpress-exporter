@@ -35,7 +35,11 @@ function sva_exporter_delete_page_html() {
                 $data = (json_decode($body, true));
                 $pois = $data["data"]["pointsOfInterest"];
                 $anzahl_poi = count($pois);
-                $param = htmlentities($_GET["delete"],ENT_QUOTES);
+                if( isset ($_GET["delete"]) ) {
+                    $param = htmlentities($_GET["delete"],ENT_QUOTES);
+                } else {
+                    $param = "";
+                }
                 if($param == "true") {
                     foreach ($pois as $poi) {
                         $id = $poi["id"];

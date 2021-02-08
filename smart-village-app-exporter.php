@@ -4,7 +4,7 @@
 Plugin Name: Smart Village App Exporter
 Plugin URI:  https://smart-village.app
 Description: Exportiert Daten zur Smart Village App
-Version:     1.0
+Version:     1.1
 Author:      Philipp Wiliumzig, Smart Village Solutions
 Author URI:  https://smart-village.solutions
 License:     GPL3
@@ -18,9 +18,11 @@ define("SVA_EXPORTER_ADMIN_PATH", __DIR__ . "/admin/");
 
 require_once SVA_EXPORTER_ADMIN_PATH."admin.php";
 
-add_action("save_post", "sva_exporter_save_post");
+// add_action("save_post", "sva_exporter_save_post");
 
-function sva_exporter_save_post() {
+// function sva_exporter_save_post() {
     // Diese Funktion würde bei jeder Speicherung eines Post ausgeführt
-}
+    // ToDo: Export nach jeder Speicheruzng eines Projekts ausführen
+
+//}
 ?>

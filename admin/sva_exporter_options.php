@@ -39,13 +39,13 @@ function sva_exporter_settings_init() {
         'sva_exporter_options'
     );
 
-    add_settings_field(
-        'sva-exporter_history',
-        'Secret',
-        'sva_exporter_history_callback',
-        'sva-exporter',
-        'sva_exporter_options'
-    );
+    // add_settings_field(
+    //     'sva-exporter_history',
+    //     'Secret',
+    //     'sva_exporter_history_callback',
+    //     'sva-exporter',
+    //     'sva_exporter_options'
+    // );
 }
 
 /**
